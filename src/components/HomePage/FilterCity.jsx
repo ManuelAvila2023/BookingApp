@@ -8,12 +8,12 @@ const FilterCity = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const url = "/cities"; // Cambiamos de /api/cities a /cities
+    const url = "https://hotels-api.academlo.tech/cities"; // Cambiamos de /api/cities a /cities
     getCities(url);
   }, []);
 
   const handleCityFilter = (cityId) => {
-    const url = `/hotels${cityId ? `?cityId=${cityId}` : ""}`; // Cambiamos de /api/hotels a /hotels
+    const url = `https://hotels-api.academlo.tech/hotels${cityId ? `?cityId=${cityId}` : ""}`; // Cambiamos de /api/hotels a /hotels
     dispatch(getHotelsThunk(url));
   };
 

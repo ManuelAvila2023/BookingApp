@@ -15,7 +15,7 @@ const ReviewList = ({ hotelId }) => {
     setLoading(true);
     try {
       // Obtener todas las reviews del hotel
-      const data = await getApi(`/reviews?hotelId=${hotelId}`, true);
+      const data = await getApi(`https://hotels-api.academlo.tech/reviews?hotelId=${hotelId}`, true);
       if (!data?.results) {
         setReviews([]);
         setLoading(false);
@@ -29,7 +29,7 @@ const ReviewList = ({ hotelId }) => {
 
       // 3) Obtener todos los usuarios de una sola vez
       // Suponiendo que la API acepte este formato de query
-      const users = await getApi(`/users?ids=${uniqueUserIds.join(",")}`, true);
+      const users = await getApi(`https://hotels-api.academlo.tech/users?ids=${uniqueUserIds.join(",")}`, true);
 
       // Crear un diccionario { userId: "Nombre Apellido" }
       const userMap = {};

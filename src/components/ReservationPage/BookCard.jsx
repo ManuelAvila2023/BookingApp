@@ -6,7 +6,7 @@ const BookCard = ({ book, deleteReservation, openModal }) => {
   const reservationDays = Math.round((finalDate - initialDate) / (1000 * 60 * 60 * 24)); // Redondeo explícito
 
   const handleDelete = () => {
-    const url = `/bookings/${book.id}`; // Cambiamos /api/bookings a /bookings
+    const url = `https://hotels-api.academlo.tech/bookings/${book.id}`; // Cambiamos /api/bookings a /bookings
     deleteReservation(url, book.id, true);
   };
 

@@ -52,7 +52,7 @@ const FormReservations = ({ hotelId }) => {
     };
 
     try {
-      await createBook("/bookings", objData, true); // Cambiamos /api/bookings a /bookings
+      await createBook("https://hotels-api.academlo.tech/bookings", objData, true); // Cambiamos /api/bookings a /bookings
       reset({
         checkIn: "",
         checkOut: "",

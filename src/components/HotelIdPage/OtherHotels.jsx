@@ -8,7 +8,7 @@ const OtherHotels = ({ city, id }) => {
 
   useEffect(() => {
     if (city) {
-      const url = `/hotels?cityId=${city?.id}`; // Cambiamos /api/hotels a /hotels
+      const url = `https://hotels-api.academlo.tech/hotels?cityId=${city?.id}`; // Cambiamos /api/hotels a /hotels
       getHotelsByCity(url);
     }
   }, [city]);

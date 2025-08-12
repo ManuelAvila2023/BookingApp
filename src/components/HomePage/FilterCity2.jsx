@@ -8,14 +8,14 @@ const FilterCity = () => {
   const [cities, getCities] = useFetch();
 
   useEffect(() => {
-    const url = "/api/cities";
+    const url = "https://hotels-api.academlo.tech/cities";
     getCities(url);
   }, []);
 
 const dispatch = useDispatch()
 
 const handleCityFilter = (cityId) => {
- const url = `/api/hotels${cityId ? `?cityId=${cityId}` :""}`;
+ const url = `https://hotels-api.academlo.tech/hotels${cityId ? `?cityId=${cityId}` :""}`;
  dispatch(getHotelsThunk(url));
 };
 
