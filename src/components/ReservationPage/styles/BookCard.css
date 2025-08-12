@@ -1,0 +1,131 @@
+/* Main card container */
+.reserve {
+ display: flex;
+ flex-direction: column;
+ gap: 1em;
+ width: 100%;
+ max-width: 900px; /* Matches the wider layout in the image */
+ background-color: #a81c2a; /* Red background */
+ color: white; /* White text */
+ border-radius: 1em;
+ box-shadow: 0.3em 0.3em 0.5em rgba(0, 0, 0, 0.25);
+ padding: 1em;
+}
+
+/* Image header */
+.reserve__header {
+ border-radius: 1em;
+ overflow: hidden;
+ width: 100%;
+ max-width: 150px; /* Fixed width for the image */
+}
+
+/* Image styling */
+.reserve__img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ display: block;
+}
+
+/* Info section (hotel name, location, rate link) */
+.reserve__info {
+ display: flex;
+ flex-direction: column;
+ gap: 0.5em;
+ padding: 0;
+}
+
+/* Hotel name */
+.reserve h3 {
+ font-size: 1.5rem;
+ font-weight: bold;
+ text-transform: uppercase;
+ margin: 0;
+}
+
+/* Location */
+.reserve div {
+ font-size: 0.9rem;
+ opacity: 0.9;
+}
+
+/* Rate and comment link */
+.reserve p {
+ font-size: 0.9rem;
+ margin: 0;
+}
+
+.reserve p a {
+ color: #1e90ff; /* Blue link color */
+ text-decoration: underline;
+}
+
+/* Days and price section */
+.reserve__days__price {
+ display: flex;
+ flex-direction: column;
+ gap: 0.5em;
+ padding: 0;
+ text-align: right;
+}
+
+/* Labels for days and price */
+.reserve__days__price span:first-child {
+ font-size: 0.9rem;
+ opacity: 0.7;
+}
+
+/* Values for days and price */
+.reserve__days__price span:last-child {
+ font-size: 1rem;
+ font-weight: bold;
+}
+
+/* Delete button */
+.card__btn {
+ background-color: #ff6f61; /* Pink background */
+ border: none;
+ border-radius: 0.5em;
+ width: 40px;
+ height: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+}
+
+.card__btn i {
+ color: white;
+ font-size: 1.2rem;
+}
+
+/* Desktop layout */
+@media screen and (min-width: 800px) {
+ .reserve {
+   display: grid;
+   grid-template-columns: 150px 1fr 200px 50px; /* Image, info, days/price, button */
+   align-items: center;
+   gap: 1em;
+ }
+
+ .reserve__header {
+   max-height: 150px;
+ }
+}
+
+/* Mobile layout */
+@media screen and (max-width: 799px) {
+ .reserve {
+   grid-template-columns: 1fr;
+   gap: 0.5em;
+ }
+
+ .reserve__days__price {
+   text-align: left;
+ }
+
+ .card__btn {
+   align-self: flex-start;
+ }
+}

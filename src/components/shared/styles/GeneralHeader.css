@@ -1,0 +1,92 @@
+.header {
+  display: flex;
+  padding: 1em 2em 1.5em;
+  width: 100%;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: baseline;
+  box-shadow: 0 0 1em #0003;
+  margin-bottom: 1.5em;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+  text-shadow: 0.1em 0.1em #0002;
+}
+
+.header__app {
+  color: #444;
+}
+
+.header__booking {
+  color: var(--color-red);
+}
+
+.header__list {
+  display: flex;
+  gap: 1.5em;
+}
+
+.header__item {
+  color: #000000;
+}
+
+/* Estilos base para la navegación móvil */
+.header__nav {
+  position: fixed;
+  background-color: #fff;
+  right: 0;
+  padding: 2.5em 2em 3em;
+  box-shadow: -0.2em 0.2em 0.2em #0002;
+  z-index: 101;
+  top: 78px;
+  max-width: 250px;
+  width: 100%;
+}
+
+/* Pantallas mayores a 550px: Mostrar solo la navegación principal */
+@media screen and (min-width: 550px) {
+  .header__menu,
+  .header__nav {
+    display: none;
+  }
+
+  .header__main-nav {
+    display: block;
+  }
+}
+
+/* Pantallas menores o iguales a 550px: Mostrar el ícono del menú y la navegación móvil (cuando esté abierta) */
+@media screen and (max-width: 550px) {
+  .header__main-nav {
+    display: none !important; /* Aumentar especificidad */
+  }
+
+  .nav__open {
+    display: block;
+    /* border: 2px solid red; /* Descomentar para depuración */
+  }
+
+  .nav__close {
+    display: none;
+  }
+
+  .header__menu {
+    display: block;
+    position: relative;
+    top: 0.2em;
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 102;
+  }
+
+  /* Mostrar la lista de la navegación móvil en columna */
+  .header__nav .header__list {
+    flex-direction: column;
+    gap: 1em;
+  }
+}

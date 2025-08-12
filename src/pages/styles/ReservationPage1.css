@@ -1,0 +1,36 @@
+.reservations {
+ padding: 1em 2em;
+ display: grid;
+ justify-content: center;
+ gap: 2em;
+}
+
+.reservations__title {
+ margin-top: 90px;
+ text-align: center;
+}
+
+.reserve__form__close {
+ transform: scale(0);
+}
+
+.reserve__form-container {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ min-height: 100vh;
+ background-color: #0003;
+ z-index: 10;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ -webkit-backdrop-filter: blur(1.5px);
+ backdrop-filter: blur(1.5px);
+}
+
+.reservations__container {
+ display: grid;
+ gap: 2em;
+}

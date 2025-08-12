@@ -1,0 +1,100 @@
+.card {
+ width: 100%;
+ max-width: 260px;
+ border-radius: .8em;
+ overflow: hidden;
+ box-shadow: .5em .5em 1em #0005;
+ transition: transform .1s ease;
+}
+
+.card:hover {
+ transform: scale(1.04);
+}
+
+.card__header {
+ width: 100%;
+ aspect-ratio: 1.5;
+}
+
+.card__image {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+
+.card__body {
+ padding: 1em;
+ padding-bottom: 0;
+}
+
+.card__name {
+ font-size: 1em;
+ margin-bottom: .5em;
+ height: 2.5em;
+ display: flex;
+}
+
+.card__rating {
+ display: flex;
+ align-items: center;
+ margin-bottom: 0.5em;
+ gap: .5em;
+}
+
+.card__rating-value {
+ font-size: .8rem;
+ font-weight: 300;
+}
+
+.card__city {
+ font-size: .8rem;
+ font-weight: 400;
+ margin-bottom: .5em;
+}
+
+.card__price {
+ font-weight: 500;
+ margin-bottom: .5em;
+}
+
+.card__price::before {
+ content: '$';
+ margin-right: 0.3em;
+}
+
+.card__footer {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: #fff;
+ padding-top: 0;
+ margin-top: 0;
+}
+
+.card__btn {
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ border: none;
+ padding: .6em 1.5em;
+ border-radius: .8em;
+ background-color: #fa4040;
+ color: #fff;
+ font-weight: 700;
+ filter: grayscale(.3);
+}
+
+.card__btn:hover {
+ filter: grayscale(0);
+}
+
+/* Star styles */
+.star {
+ color: #ccc; /* Default gray for empty stars */
+ font-size: 1rem;
+}
+
+.star--full,
+.star--half {
+ color: #f1c40f; /* Yellow for filled and half stars */
+}

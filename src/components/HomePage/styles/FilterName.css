@@ -1,0 +1,41 @@
+.search {
+ margin-top: 90px;
+ justify-self: center;
+ display: flex;
+ align-items: center;
+ padding: 2em 0 3em;
+}
+
+.search__input {
+ padding: .5em 1em;
+ font-weight: 500;
+ border: 1px solid #aaaa;
+ height: 3em;
+}
+
+.search__btn {
+ display: block;
+ font-weight: 500;
+ width: 7em;
+ height: 3em;
+ border: none;
+ background-color: #fa4040;
+ color: #fff;
+ filter: brightness(.9);
+}
+
+.homepage__filter__icon {
+ margin-left: 1em;
+ font-size: 1.8rem;
+ cursor: pointer;
+ display: none;
+}
+
+@media screen and (max-width: 550px) {
+ .homepage__filter__icon {
+  margin-left: 1em;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: block;
+ }
+}

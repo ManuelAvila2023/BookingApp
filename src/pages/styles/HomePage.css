@@ -1,0 +1,158 @@
+.homepage {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+  }
+  
+  .homepage__card-container {
+    /* margin-top: 90px;  */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    max-width: 1200px;
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .filters {
+    grid-row: span 2;
+    padding: 2em 3em;
+    /* position: fixed; */
+    background-color: #fff;
+    width: 100%;
+    top: 80px;
+    z-index: 1;
+    box-shadow: 0 0 1em #0008;
+    transition: transform 0.2s ease;
+  }
+  
+  .filters.true {
+    transform: translateX(0);
+    display: block;
+  }
+  
+  .filters.false {
+    transform: translateX(-100%);
+    display: none;
+  }
+  
+  .filters__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .filters__title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5em;
+  }
+  
+  .filters__exit {
+    font-size: 1.3rem;
+    cursor: pointer;
+    position: relative;
+    top: -0.8em;
+    right: 0.2em;
+  }
+  
+  .price {
+    display: grid;
+    gap: 0.5em;
+    margin-bottom: 1.5em;
+  }
+  
+  .price__title {
+    font-size: 1em;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .price__label {
+    display: block;
+    padding-left: 1em;
+    margin-bottom: 0.2em;
+    font-size: 0.9em;
+    font-weight: 300;
+  }
+  
+  .price__input {
+    display: block;
+    border: 1px solid #aaa9;
+    width: 100%;
+    padding: 0.4em 0.8em;
+  }
+  
+  .price__btn {
+    margin-top: 1em;
+    background-color: #fa4040;
+    color: #fff;
+    filter: brightness(0.9);
+    border: none;
+    padding: 0.5em;
+  }
+  
+  .filter-country {
+    display: grid;
+    gap: 0.5em;
+  }
+  
+  .filter-country__title {
+    font-size: 1em;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .filter-country__list {
+    display: grid;
+  }
+  
+  .filter-country__item {
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0.5em;
+    transition: transform 0.2s ease;
+  }
+  
+  .filter-country__item:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Pantallas mayores a 550px */
+  @media screen and (min-width: 551px) {
+    .filters {
+      margin-top: 90px;
+      display: block;
+      position: static;
+      box-shadow: none;
+      transform: translateX(0); /* Siempre visible */
+    }
+  
+    .filters__exit {
+      display: none; /* Ocultar botón de cierre */
+    }
+  
+    .filters__header {
+      margin-top: 0; /* Eliminar margen en pantallas grandes */
+    }
+    .filters.false {
+      transform: translateX(0);
+      display: block;
+    }
+  }
+  
+  /* Pantallas menores o iguales a 550px */
+  @media screen and (max-width: 550px) {
+    .homepage {
+      grid-template-columns: 1fr;
+    }
+  
+    .filters {
+      top: 78px;
+      /* max-width: 250px; */
+      position: fixed;
+    }
+  
+    .filters.false {
+      display: none;
+    }
+  }

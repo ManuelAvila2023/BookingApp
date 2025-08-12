@@ -1,0 +1,146 @@
+.loginpage {
+ min-height: calc(100vh - 103px);
+ display: flex;
+ flex-direction: column;
+ gap: 2em;
+ justify-content: center;
+ align-items: center;
+}
+
+.login {
+ width: 100%;
+ max-width: 300px;
+ margin-bottom: 3em;
+}
+
+.loginpage__title {
+ text-align: center;
+ margin-bottom: .5em;
+ color: #fa4040;
+ text-transform: uppercase;
+}
+
+.login__label {
+ padding-left: 1em;
+ font-weight: 500;
+}
+
+.login__input {
+ padding: .5em 1em;
+ border: 1px solid #0003;
+ font-size: 1rem;
+ font-weight: 300;
+}
+
+.login__field {
+ margin-top: 1em;
+ display: grid;
+ gap: .5em;
+}
+
+.login__btn {
+ display: block;
+ margin-top: 3em;
+ width: 100%;
+ padding: .7em 0;
+ font-size: 1rem;
+ background-color: #fa4040;
+ color: #fff;
+ border: none;
+ filter: brightness(.9);
+}
+
+.loginpage__img {
+ display: block;
+ width: 100%;
+ max-width: 100px;
+}
+
+.user__header {
+ width: 100%;
+ max-width: 150px;
+}
+
+.user__image {
+ width: 100%;
+}
+
+.user__welcome {
+ font-size: 1.4rem;
+ font-weight: 300;
+}
+
+.user__btn {
+ width: 120px;
+ padding: .5em;
+ border: 1px solid #FA4040;
+ background-color: #fff;
+ color: #fa4040;
+ border-radius: .8em;
+}
+
+.login__success {
+  color: #28a745; /* Verde para éxito */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: fixed;
+}
+
+/* .loginpage {
+ min-height: calc(100vh - 103px);
+ display: flex;
+ flex-direction: column;
+ gap: 2em;
+ justify-content: center;
+ align-items: center;
+}
+
+.login {
+ width: 100%;
+ max-width: 300px;
+ margin-bottom: 3em;
+}
+
+.loginpage__title {
+ text-align: center;
+ margin-bottom: .5em;
+ color: #fa4040;
+ text-transform: uppercase;
+}
+
+.login__label {
+ padding-left: 1em;
+ font-weight: 500;
+}
+
+.login__input {
+ padding: .5em 1em;
+ border: 1px solid #0003;
+ font-size: 1rem;
+ font-weight: 300;
+}
+
+.login__field {
+ margin-top: 1em;
+ display: grid;
+ gap: .5em;
+}
+
+.login__btn {
+ display: block;
+ margin-top: 3em;
+ width: 100%;
+ padding: .7em 0;
+ font-size: 1rem;
+ background-color: #fa4040;
+ color: #fff;
+ border: none;
+ filter: brightness(.9);
+}
+
+.loginpage__img {
+ display: block;
+ width: 100%;
+ max-width: 100px;
+} */

@@ -1,0 +1,35 @@
+.price {
+ display: grid;
+ gap: .5em;
+ margin-bottom: 1.5em;
+}
+
+.price__title {
+ font-size: 1em;
+ text-align: center;
+ font-weight: 500;
+}
+
+.price__label {
+ display: block;
+ padding-left: 1em;
+ margin-bottom: .2em;
+ font-size: .9em;
+ font-weight: 300;
+}
+
+.price__input {
+ display: block;
+ border: 1px solid #aaa9;
+ width: 100%;
+ padding: .4em .8em;
+}
+
+.price__btn {
+ margin-top: 1em;
+ background-color: #fa4040;
+ color: #fff;
+ filter: brightness(.9);
+ border: none;
+ padding: .5em;
+}

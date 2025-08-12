@@ -1,0 +1,469 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0003;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    -webkit-backdrop-filter: blur(1.5px);
+    backdrop-filter: blur(1.5px);
+}
+
+.reserve__form {
+    background-color: #ffffffe6;
+    padding: 2em 2em 3em;
+    border-radius: .8em;
+    position: relative;
+}
+
+.reserveSelected__img {
+    width: 200px;
+    border-radius: .8em;
+    margin-bottom: 1em;
+}
+
+.reserve__form__x {
+    position: absolute;
+    font-size: 1.1rem;
+    top: .6em;
+    right: 1em;
+    cursor: pointer;
+    padding: .5em;
+}
+
+.reserve__form__title {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #fa4040;
+}
+
+.reserveSelected {
+    margin-bottom: 1.5em;
+}
+
+.reserveSelected__header {
+    display: flex;
+    justify-content: center;
+}
+
+.reserveSelected__img {
+    width: 200px;
+    border-radius: .8em;
+    margin-bottom: 1em;
+}
+
+.reserveSelected__name {
+    font-size: 1rem;
+    margin-bottom: .3em;
+}
+
+.reserveSelected__location {
+    font-size: .8rem;
+    margin-bottom: .5em;
+    font-weight: 300;
+}
+
+.reserveSelected__days__price {
+    font-size: .9rem;
+    display: grid;
+    gap: .5em;
+    font-weight: 500;
+}
+
+.reserveSelected__days, .reserveSelected__subtotal {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 2fr 5em 1fr;
+}
+
+.reserveSelected__days__value, .reserveSelected__subtotal__value {
+    font-weight: 300;
+}
+
+.reserveSelected__subtotal__value:before {
+    content: "$";
+    margin-right: .3em;
+}
+
+.reserve__form__label {
+    display: grid;
+    gap: .5em;
+}
+
+/* MODIFIED/ADDED: Styles for the custom select dropdown */
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select__selected {
+    padding: .5em 1em;
+    border: 1px solid #ccc;
+    border-radius: .6em;
+    font-family: inherit;
+    font-size: .9rem;
+    font-weight: 300;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-select__selected:hover {
+    border-color: #fa4040;
+    box-shadow: 0 0 5px rgba(250, 64, 64, 0.3);
+}
+
+.custom-select__options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-radius: .6em;
+    background-color: #ffffff;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.custom-select__options.open {
+    display: block;
+}
+
+.custom-select__option {
+    padding: .5em 1em;
+    font-size: .9rem;
+    font-family: inherit;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.custom-select__option:hover {
+    background-color: #fa404033;
+    color: #fa4040;
+}
+
+/* REMOVED: Original select styles as they are replaced by custom dropdown */
+.reserve__form__comment__value {
+    resize: none;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    padding: .7em 1em;
+    border-radius: .6em;
+    font-weight: 300;
+    outline: none;
+    margin-bottom: 1.5em;
+}
+
+.reserve__form__btn {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 150px;
+    padding: .7em;
+    border: none;
+    background-color: #fa404099;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0003;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    -webkit-backdrop-filter: blur(1.5px);
+    backdrop-filter: blur(1.5px);
+}
+
+.reserve__form {
+    background-color: #ffffffe6;
+    padding: 2em 2em 3em;
+    border-radius: .8em;
+    position: relative;
+}
+
+.reserveSelected__img {
+    width: 200px;
+    border-radius: .8em;
+    margin-bottom: 1em;
+}
+
+.reserve__form__x {
+    position: absolute;
+    font-size: 1.1rem;
+    top: .6em;
+    right: 1em;
+    cursor: pointer;
+    padding: .5em;
+}
+
+.reserve__form__title {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #fa4040;
+}
+
+.reserveSelected {
+    margin-bottom: 1.5em;
+}
+
+.reserveSelected__header {
+    display: flex;
+    justify-content: center;
+}
+
+.reserveSelected__img {
+    width: 200px;
+    border-radius: .8em;
+    margin-bottom: 1em;
+}
+
+.reserveSelected__name {
+    font-size: 1rem;
+    margin-bottom: .3em;
+}
+
+.reserveSelected__location {
+    font-size: .8rem;
+    margin-bottom: .5em;
+    font-weight: 300;
+}
+
+.reserveSelected__days__price {
+    font-size: .9rem;
+    display: grid;
+    gap: .5em;
+    font-weight: 500;
+}
+
+.reserveSelected__days, .reserveSelected__subtotal {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 2fr 5em 1fr;
+}
+
+.reserveSelected__days__value, .reserveSelected__subtotal__value {
+    font-weight: 300;
+}
+
+.reserveSelected__subtotal__value:before {
+    content: "$";
+    margin-right: .3em;
+}
+
+.reserve__form__label {
+    display: grid;
+    gap: .5em;
+}
+
+.reserve__form__rating {
+    padding: .5em 1em;
+    border: 1px solid #ccc;
+    border-radius: .6em;
+    font-family: inherit;
+    font-size: .9rem;
+    font-weight: 300;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reserve__form__rating:hover,
+.reserve__form__rating:focus {
+    border-color: #fa4040;
+    box-shadow: 0 0 5px rgba(250, 64, 64, 0.3);
+}
+
+
+.reserve__form__rating option {
+    font-size: .9rem;
+    padding: .5em 1em;
+    background-color: #ffffff;
+    color: #333;
+    font-family: inherit;
+    font-weight: 300;
+}
+
+
+.reserve__form__rating option:hover,
+.reserve__form__rating option:focus,
+.reserve__form__rating option:checked {
+    background-color: #fa404033;
+    color: #fa4040;
+}
+
+.reserve__form__comment__value {
+    resize: none;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    padding: .7em 1em;
+    border-radius: .6em;
+    font-weight: 300;
+    outline: none;
+    margin-bottom: 1.5em;
+}
+
+.reserve__form__btn {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 150px;
+    padding: .7em;
+    border: none;
+    background-color: #fa404099;
+    color: #fff;
+    font-weight: 500;
+} */
+
+/* .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0003;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    -webkit-backdrop-filter: blur(1.5px);
+    backdrop-filter: blur(1.5px);
+}
+
+.reserve__form {
+    background-color: #ffffffe6;
+    padding: 2em 2em 3em;
+    border-radius: .8em;
+    position: relative;
+}
+
+.reserveSelected__img {
+    width: 200px;
+    border-radius: .8em;
+    margin-bottom: 1em;
+}
+
+.reserve__form__x {
+    position: absolute;
+    font-size: 1.1rem;
+    top: .6em;
+    right: 1em;
+    cursor: pointer;
+    padding: .5em;
+}
+
+.reserve__form__title {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #fa4040;
+}
+
+.reserveSelected {
+    margin-bottom: 1.5em;
+}
+
+.reserveSelected__header {
+    display: flex;
+    justify-content: center;
+}
+
+.reserveSelected__img {
+    width: 200px;
+    border-radius: .8em;
+    margin-bottom: 1em;
+}
+
+.reserveSelected__name {
+    font-size: 1rem;
+    margin-bottom: .3em;
+}
+
+.reserveSelected__location {
+    font-size: .8rem;
+    margin-bottom: .5em;
+    font-weight: 300;
+}
+
+.reserveSelected__days__price {
+    font-size: .9rem;
+    display: grid;
+    gap: .5em;
+    font-weight: 500;
+}
+
+.reserveSelected__days, .reserveSelected__subtotal {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 2fr 5em 1fr;
+}
+
+.reserveSelected__days__value, .reserveSelected__subtotal__value {
+    font-weight: 300;
+}
+
+.reserveSelected__subtotal__value:before {
+    content: "$";
+    margin-right: .3em;
+}
+
+.reserve__form__label {
+    display: grid;
+    gap: .5em;
+}
+
+.reserve__form__rating {
+    padding: .3em .5em;
+    border: 1px solid #ccc;
+}
+
+.reserve__form__label {
+    display: grid;
+    gap: .5em;
+}
+
+.reserve__form__comment__value {
+    resize: none;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    padding: .7em 1em;
+    border-radius: .6em;
+    font-weight: 300;
+    outline: none;
+    margin-bottom: 1.5em;
+}
+
+.reserve__form__btn {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 150px;
+    padding: .7em;
+    border: none;
+    background-color: #fa404099;
+    color: #fff;
+    font-weight: 500;
+} */

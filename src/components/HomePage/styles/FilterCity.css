@@ -1,0 +1,21 @@
+.filter-country {
+    display: grid;
+    gap: .5em;
+}
+
+.filter-country__title {
+    font-size: 1em;
+    text-align: center;
+    font-weight: 500;
+}
+
+.filter-country__list {
+    display: grid;
+}
+
+.filter-country__item {
+    font-size: .8rem;
+    cursor: pointer;
+    padding: .5em;
+    transition: transform .2s ease;
+}

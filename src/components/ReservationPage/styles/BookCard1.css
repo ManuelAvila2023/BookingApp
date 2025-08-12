@@ -1,0 +1,116 @@
+/* .reservations__container {
+ display: grid;
+ gap: 2em;
+} */
+
+.reserve {
+ display: flex;
+ flex-direction: column;
+ gap: 1em;
+ width: 100%;
+ max-width: 300px;
+ border-radius: 1em;
+ box-shadow: .3em .3em .5em #0004;
+}
+
+
+.reserve__header {
+ border-radius: 1em;
+ overflow: hidden;
+}
+
+.reserve__img {
+ width: 100%;
+}
+
+.reserve__info, .reserve__days__price {
+ display: flex;
+ flex-direction: column;
+ gap: .5em;
+ padding-left: 1em;
+ padding-right: 1em;
+}
+
+.reserve__name {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.reserve__comment {
+    cursor: pointer;
+    font-size: .8rem;
+    color: #3535ff;
+}
+
+.reserve__location {
+    font-size: .9rem;
+}
+
+.reserve__days, .reserve__subtotal {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+}
+
+.reserve__days__label, .reserve__subtotal__label {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.reserve__days__value, .reserve__subtotal__value {
+    font-weight: 300;
+    position: relative;
+}
+
+.reserve__subtotal__value:before {
+    content: "USD$";
+    font-size: .7em;
+    position: absolute;
+    left: -3em;
+    bottom: .3em;
+    align-self: end;
+}
+
+.reserve__delete {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2rem;
+    border: none;
+    width: 2.5em;
+    aspect-ratio: 1;
+    border-radius: .6em;
+    background-color: #fa404099;
+    color: #fff;
+    margin-bottom: 1em;
+}
+
+@media screen and (min-width: 800px) {
+    .reserve__info, .reserve__days__price {
+        padding: 0;
+    }
+}
+/* .reserve__form-container {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ min-height: 100vh;
+ background-color: #0003;
+ z-index: 10;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ -webkit-backdrop-filter: blur(1.5px);
+ backdrop-filter: blur(1.5px);
+} */
+
+@media screen and (min-width: 800px) {
+ .reserve {
+     display: grid;
+     grid-template-columns: 2fr 4fr 3fr 1fr;
+     max-width: 900px;
+     gap: 1em;
+     align-items: center;
+ }
+}

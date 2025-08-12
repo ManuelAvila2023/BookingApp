@@ -1,0 +1,19 @@
+.otherhotel {
+ grid-column: span 2;
+}
+
+.otherhotel__title {
+ margin-bottom: 1.5em;
+}
+
+.otherhotel__title__country {
+ color: #fa4040;
+ margin-bottom: 1em;
+}
+
+.otherhotel__container {
+ display: flex;
+ gap: 1em;
+ justify-content: center;
+ align-items: center;
+}
