@@ -13,7 +13,7 @@ const ReservationPage = () => {
   const [selectedBook, setSelectedBook] = useState(null);
 
   useEffect(() => {
-    const url = "/api/bookings";
+    const url = "https://hotels-api.academlo.tech/bookings";
     setLoading(true);
     getReservations(url, true)
       .then(() => setLoading(false))
