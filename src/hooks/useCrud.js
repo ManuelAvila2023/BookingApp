@@ -10,12 +10,14 @@ const useCrud = () => {
 
   // READ
   const getApi = (url, withToken) => {
+    const fullUrl = `${baseUrl}${url.startsWith('/') ? url : '/' + url}`;
+    console.log("Requesting GET:", fullUrl); // Depuración
     return axios
-      .get(`${baseUrl}${url}`, withToken ? getConfigToken() : {})
+      .get(fullUrl, withToken ? getConfigToken() : {})
       .then((res) => {
         const data = res.data || [];
         setResponse(data);
-        return data; // Return data for the caller
+        return data;
       })
       .catch((err) => {
         console.error("GET error:", err);
@@ -23,14 +25,16 @@ const useCrud = () => {
           localStorage.removeItem("token");
           localStorage.removeItem("userLogged");
         }
-        throw err; // Re-throw for .catch in caller
+        throw err;
       });
   };
 
   // CREATE
   const postApi = (url, data, withToken) => {
+    const fullUrl = `${baseUrl}${url.startsWith('/') ? url : '/' + url}`;
+    console.log("Requesting POST:", fullUrl); // Depuración
     return axios
-      .post(`${baseUrl}${url}`, data, withToken ? getConfigToken() : {})
+      .post(fullUrl, data, withToken ? getConfigToken() : {})
       .then((res) => {
         console.log("POST response:", res.data);
         setResponse((prev) => (prev ? [...prev, res.data] : [res.data]));
@@ -48,8 +52,10 @@ const useCrud = () => {
 
   // DELETE
   const deleteApi = (url, id, withToken) => {
+    const fullUrl = `${baseUrl}${url.startsWith('/') ? url : '/' + url}`;
+    console.log("Requesting DELETE:", fullUrl); // Depuración
     return axios
-      .delete(`${baseUrl}${url}`, withToken ? getConfigToken() : {})
+      .delete(fullUrl, withToken ? getConfigToken() : {})
       .then((res) => {
         console.log("DELETE response:", res.data);
         setResponse((prev) => prev.filter((e) => e.id !== id));
@@ -75,7 +81,6 @@ const useCrud = () => {
 
 export default useCrud;
 
-// // useCrud.js
 // import axios from "axios";
 // import { useState } from "react";
 // import getConfigToken from "../services/getConfigToken";
@@ -83,13 +88,17 @@ export default useCrud;
 // const useCrud = () => {
 //   const [response, setResponse] = useState([]);
 
+//   // Base URL de la API
+//   const baseUrl = "https://hotels-api.academlo.tech";
+
 //   // READ
 //   const getApi = (url, withToken) => {
 //     return axios
-//       .get(url, withToken ? getConfigToken() : {})
+//       .get(`${baseUrl}${url}`, withToken ? getConfigToken() : {})
 //       .then((res) => {
-//         setResponse(res.data || []);
-//         return res.data; // Return data for the caller
+//         const data = res.data || [];
+//         setResponse(data);
+//         return data; // Return data for the caller
 //       })
 //       .catch((err) => {
 //         console.error("GET error:", err);
@@ -104,7 +113,7 @@ export default useCrud;
 //   // CREATE
 //   const postApi = (url, data, withToken) => {
 //     return axios
-//       .post(url, data, withToken ? getConfigToken() : {})
+//       .post(`${baseUrl}${url}`, data, withToken ? getConfigToken() : {})
 //       .then((res) => {
 //         console.log("POST response:", res.data);
 //         setResponse((prev) => (prev ? [...prev, res.data] : [res.data]));
@@ -123,10 +132,10 @@ export default useCrud;
 //   // DELETE
 //   const deleteApi = (url, id, withToken) => {
 //     return axios
-//       .delete(url, withToken ? getConfigToken() : {})
+//       .delete(`${baseUrl}${url}`, withToken ? getConfigToken() : {})
 //       .then((res) => {
 //         console.log("DELETE response:", res.data);
-//         setResponse((prev) => prev.filter((e) => id !== e.id));
+//         setResponse((prev) => prev.filter((e) => e.id !== id));
 //         return res.data;
 //       })
 //       .catch((err) => {
@@ -148,70 +157,144 @@ export default useCrud;
 // };
 
 // export default useCrud;
-// // import axios from "axios"
-// // import { useState } from "react"
-// // import getConfigToken from "../services/getConfigToken"
+
+// // // useCrud.js
+// // import axios from "axios";
+// // import { useState } from "react";
+// // import getConfigToken from "../services/getConfigToken";
 
 // // const useCrud = () => {
+// //   const [response, setResponse] = useState([]);
 
-// //  const [response, setResponse] = useState()
+// //   // READ
+// //   const getApi = (url, withToken) => {
+// //     return axios
+// //       .get(url, withToken ? getConfigToken() : {})
+// //       .then((res) => {
+// //         setResponse(res.data || []);
+// //         return res.data; // Return data for the caller
+// //       })
+// //       .catch((err) => {
+// //         console.error("GET error:", err);
+// //         if (err?.response?.status === 401 || err?.response?.status === 403) {
+// //           localStorage.removeItem("token");
+// //           localStorage.removeItem("userLogged");
+// //         }
+// //         throw err; // Re-throw for .catch in caller
+// //       });
+// //   };
 
-// //   //read
+// //   // CREATE
+// //   const postApi = (url, data, withToken) => {
+// //     return axios
+// //       .post(url, data, withToken ? getConfigToken() : {})
+// //       .then((res) => {
+// //         console.log("POST response:", res.data);
+// //         setResponse((prev) => (prev ? [...prev, res.data] : [res.data]));
+// //         return res.data;
+// //       })
+// //       .catch((err) => {
+// //         console.error("POST error:", err.response?.data || err.message);
+// //         if (err?.response?.status === 401 || err?.response?.status === 403) {
+// //           localStorage.removeItem("token");
+// //           localStorage.removeItem("userLogged");
+// //         }
+// //         throw err;
+// //       });
+// //   };
 
-// //   const getApi= (url, withToken )=>{
-// //    axios.get(url, withToken ? getConfigToken() : {})
-// //      .then(res=> setResponse(res.data))
-// //      .catch(err => {
-// //       console.log(err)
-// //       if(err?.response?.status === 401 || err?.response?.status === 403) {
-// //         localStorage.removeItem('token')
-// //         localStorage.removeItem('userLogged')
-// //       }
-// //     })
-// //   }
+// //   // DELETE
+// //   const deleteApi = (url, id, withToken) => {
+// //     return axios
+// //       .delete(url, withToken ? getConfigToken() : {})
+// //       .then((res) => {
+// //         console.log("DELETE response:", res.data);
+// //         setResponse((prev) => prev.filter((e) => id !== e.id));
+// //         return res.data;
+// //       })
+// //       .catch((err) => {
+// //         console.error("DELETE error:", err);
+// //         if (err?.response?.status === 401 || err?.response?.status === 403) {
+// //           localStorage.removeItem("token");
+// //           localStorage.removeItem("userLogged");
+// //         }
+// //         throw err;
+// //       });
+// //   };
 
-// //   //create
+// //   // UPDATE (Placeholder)
+// //   const updateApi = () => {
+// //     // Implement if needed
+// //   };
 
-// //   const postApi= (url, data, withToken)=>{
-// //    axios.post(url, data, withToken ? getConfigToken() : {}) 
-// //    .then(res=>{ 
-// //     console.log(res.data)
-// //     setResponse(response ? [...response, res.data] : [res.data])
-// //    })
-// //    .catch(err => {
-// //     console.log(err)
-// //     if(err?.response?.status === 401 || err?.response?.status === 403) {
-// //       localStorage.removeItem('token')
-// //       localStorage.removeItem('userLogged')
-// //     }
-// //   })
-// //   }
+// //   return [response, getApi, postApi, deleteApi, updateApi];
+// // };
 
-// //   //delete
+// // export default useCrud;
+// // // import axios from "axios"
+// // // import { useState } from "react"
+// // // import getConfigToken from "../services/getConfigToken"
 
-// //   const deleteApi= (url, id, withToken)=>{
-// //    axios.delete(url, withToken ? getConfigToken() : {})
-// //      .then(res => {
-// //       console.log(res.data)
-// //       setResponse(response.filter(e=> id !== e.id))
-// //      })
-// //      .catch(err => {
-// //       console.log(err)
-// //       if(err?.response?.status === 401 || err?.response?.status === 403) {
-// //         localStorage.removeItem('token')
-// //         localStorage.removeItem('userLogged')
-// //       }
-// //     })
+// // // const useCrud = () => {
+
+// // //  const [response, setResponse] = useState()
+
+// // //   //read
+
+// // //   const getApi= (url, withToken )=>{
+// // //    axios.get(url, withToken ? getConfigToken() : {})
+// // //      .then(res=> setResponse(res.data))
+// // //      .catch(err => {
+// // //       console.log(err)
+// // //       if(err?.response?.status === 401 || err?.response?.status === 403) {
+// // //         localStorage.removeItem('token')
+// // //         localStorage.removeItem('userLogged')
+// // //       }
+// // //     })
+// // //   }
+
+// // //   //create
+
+// // //   const postApi= (url, data, withToken)=>{
+// // //    axios.post(url, data, withToken ? getConfigToken() : {}) 
+// // //    .then(res=>{ 
+// // //     console.log(res.data)
+// // //     setResponse(response ? [...response, res.data] : [res.data])
+// // //    })
+// // //    .catch(err => {
+// // //     console.log(err)
+// // //     if(err?.response?.status === 401 || err?.response?.status === 403) {
+// // //       localStorage.removeItem('token')
+// // //       localStorage.removeItem('userLogged')
+// // //     }
+// // //   })
+// // //   }
+
+// // //   //delete
+
+// // //   const deleteApi= (url, id, withToken)=>{
+// // //    axios.delete(url, withToken ? getConfigToken() : {})
+// // //      .then(res => {
+// // //       console.log(res.data)
+// // //       setResponse(response.filter(e=> id !== e.id))
+// // //      })
+// // //      .catch(err => {
+// // //       console.log(err)
+// // //       if(err?.response?.status === 401 || err?.response?.status === 403) {
+// // //         localStorage.removeItem('token')
+// // //         localStorage.removeItem('userLogged')
+// // //       }
+// // //     })
    
-// //   }
+// // //   }
 
-// //   //update
+// // //   //update
 
-// //   const updateApi= ()=>{
+// // //   const updateApi= ()=>{
    
-// //   }
+// // //   }
 
-// //   return [response, getApi, postApi, deleteApi, updateApi]
-// // }
+// // //   return [response, getApi, postApi, deleteApi, updateApi]
+// // // }
 
-// // export default useCrud
+// // // export default useCrud

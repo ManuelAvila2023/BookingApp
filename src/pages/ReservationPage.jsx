@@ -4,7 +4,6 @@ import BookCard from "../components/ReservationPage/BookCard";
 import ReservationModal from "../components/ReservationPage/ReservationModal";
 import "./styles/ReservationPage1.css";
 
-
 const ReservationPage = () => {
   const [reservations, getReservations, , deleteReservation] = useCrud();
   const [loading, setLoading] = useState(true);
@@ -13,7 +12,7 @@ const ReservationPage = () => {
   const [selectedBook, setSelectedBook] = useState(null);
 
   useEffect(() => {
-    const url = "https://hotels-api.academlo.tech/bookings";
+    const url = "/bookings"; // Ruta relativa
     setLoading(true);
     getReservations(url, true)
       .then(() => setLoading(false))
@@ -77,19 +76,22 @@ const ReservationPage = () => {
 
 export default ReservationPage;
 
-// // ReservationPage.jsx
 // import { useEffect, useState } from "react";
 // import useCrud from "../hooks/useCrud";
 // import BookCard from "../components/ReservationPage/BookCard";
+// import ReservationModal from "../components/ReservationPage/ReservationModal";
 // import "./styles/ReservationPage1.css";
+
 
 // const ReservationPage = () => {
 //   const [reservations, getReservations, , deleteReservation] = useCrud();
 //   const [loading, setLoading] = useState(true);
 //   const [error, setError] = useState(null);
+//   const [isModalOpen, setIsModalOpen] = useState(false);
+//   const [selectedBook, setSelectedBook] = useState(null);
 
 //   useEffect(() => {
-//     const url = "/api/bookings";
+//     const url = "https://hotels-api.academlo.tech/bookings";
 //     setLoading(true);
 //     getReservations(url, true)
 //       .then(() => setLoading(false))
@@ -99,10 +101,20 @@ export default ReservationPage;
 //       });
 //   }, []);
 
-//   // Log reservations only when it changes
-//   // useEffect(() => {
-//   //   console.log("Reservations:", reservations);
-//   // }, [reservations]);
+//   const openModal = (book) => {
+//     setSelectedBook(book);
+//     setIsModalOpen(true);
+//   };
+
+//   const closeModal = () => {
+//     setIsModalOpen(false);
+//     setSelectedBook(null);
+//   };
+
+//   const handleSubmit = (rating, comment) => {
+//     console.log("Rating:", rating, "Comment:", comment);
+//     closeModal();
+//   };
 
 //   if (loading) {
 //     return <div>Loading reservations...</div>;
@@ -115,6 +127,7 @@ export default ReservationPage;
 //   return (
 //     <article className="reservations">
 //       <h2 className="reservations__title">Active Reservations</h2>
+      
 //       <div className="reservations__container">
 //         {reservations.length > 0 ? (
 //           reservations.map((book) => (
@@ -122,42 +135,107 @@ export default ReservationPage;
 //               key={book.id}
 //               book={book}
 //               deleteReservation={deleteReservation}
+//               openModal={() => openModal(book)}
 //             />
 //           ))
 //         ) : (
 //           <p>No active reservations found.</p>
 //         )}
 //       </div>
+
+//       <ReservationModal
+//         isOpen={isModalOpen}
+//         book={selectedBook}
+//         onClose={closeModal}
+//         onSubmit={handleSubmit}
+//       />
 //     </article>
 //   );
 // };
 
 // export default ReservationPage;
 
-// // import { useEffect } from "react";
+// // // ReservationPage.jsx
+// // import { useEffect, useState } from "react";
 // // import useCrud from "../hooks/useCrud";
 // // import BookCard from "../components/ReservationPage/BookCard";
-// // import "./styles/ReservationPage1.css"
+// // import "./styles/ReservationPage1.css";
 
 // // const ReservationPage = () => {
-// //   const [reservations, getReservations,, deleteReservation] = useCrud();
+// //   const [reservations, getReservations, , deleteReservation] = useCrud();
+// //   const [loading, setLoading] = useState(true);
+// //   const [error, setError] = useState(null);
 
 // //   useEffect(() => {
 // //     const url = "/api/bookings";
-// //     getReservations(url, true);
+// //     setLoading(true);
+// //     getReservations(url, true)
+// //       .then(() => setLoading(false))
+// //       .catch((err) => {
+// //         setError(err.message);
+// //         setLoading(false);
+// //       });
 // //   }, []);
 
-// //    console.log(reservations);
+// //   // Log reservations only when it changes
+// //   // useEffect(() => {
+// //   //   console.log("Reservations:", reservations);
+// //   // }, [reservations]);
+
+// //   if (loading) {
+// //     return <div>Loading reservations...</div>;
+// //   }
+
+// //   if (error) {
+// //     return <div>Error: {error}</div>;
+// //   }
+
 // //   return (
 // //     <article className="reservations">
 // //       <h2 className="reservations__title">Active Reservations</h2>
 // //       <div className="reservations__container">
-// //         {reservations?.map(book => (
-// //           <BookCard key={book.id} book={book} deleteReservation={deleteReservation}/>
-// //         ))}
+// //         {reservations.length > 0 ? (
+// //           reservations.map((book) => (
+// //             <BookCard
+// //               key={book.id}
+// //               book={book}
+// //               deleteReservation={deleteReservation}
+// //             />
+// //           ))
+// //         ) : (
+// //           <p>No active reservations found.</p>
+// //         )}
 // //       </div>
 // //     </article>
 // //   );
 // // };
 
-// // export default ReservationPage
+// // export default ReservationPage;
+
+// // // import { useEffect } from "react";
+// // // import useCrud from "../hooks/useCrud";
+// // // import BookCard from "../components/ReservationPage/BookCard";
+// // // import "./styles/ReservationPage1.css"
+
+// // // const ReservationPage = () => {
+// // //   const [reservations, getReservations,, deleteReservation] = useCrud();
+
+// // //   useEffect(() => {
+// // //     const url = "/api/bookings";
+// // //     getReservations(url, true);
+// // //   }, []);
+
+// // //    console.log(reservations);
+// // //   return (
+// // //     <article className="reservations">
+// // //       <h2 className="reservations__title">Active Reservations</h2>
+// // //       <div className="reservations__container">
+// // //         {reservations?.map(book => (
+// // //           <BookCard key={book.id} book={book} deleteReservation={deleteReservation}/>
+// // //         ))}
+// // //       </div>
+// // //     </article>
+// // //   );
+// // // };
+
+// // // export default ReservationPage
